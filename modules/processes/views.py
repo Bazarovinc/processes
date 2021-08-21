@@ -43,7 +43,7 @@ def get_some_current_loading(data: CurrentLoadingRequestSchema) -> CurrenLoading
 def get_all_recordings_from_db() -> Union[dict, Response]:
     if result := exports.get_all_data():
         return {'result': result}
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+    return Response(status_code=status.HTTP_204_NO_CONTENT, content='Redis database is empty!')
 
 
 @router.post('/delete')
